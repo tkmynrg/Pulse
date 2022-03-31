@@ -1,0 +1,35 @@
+.button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: $indent12;
+  line-height: $indent18;
+  color: $colorWhite;
+  text-transform: uppercase;
+  flex-shrink: 0;
+  background-color: $colorRed;
+  cursor: pointer;
+  user-select: none;
+  transition: all .2s;
+
+  &.callback-header {
+    width: 153px;
+  }
+
+  &:hover {
+    background-color: #a11c1c;
+  }
+
+  &:active {
+
+  }
+
+  &.consultation {
+    width: 300px;
+    font-size: $indent16;
+    padding: $indent12 $indent28;
+    margin-top: $indent80;
+  }
+}
