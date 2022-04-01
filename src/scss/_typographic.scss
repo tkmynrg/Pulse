@@ -3,13 +3,17 @@
   position: relative;
   z-index: 10;
   margin: 0;
-  padding: $indent80 0;
+  padding: $indent70 0;
   background-color: $colorWhite;
   overflow: hidden;
 
   &.fullscreen {
     height: 100vh;
     min-height: 500px;
+  }
+
+  &.gray {
+    background-color: $colorBgLight;
   }
 
   @include mobile {

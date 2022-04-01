@@ -32,4 +32,12 @@
     padding: $indent12 $indent28;
     margin-top: $indent80;
   }
+
+  &.submit {
+    width: 100%;
+    border: none;
+    height: 50px;
+    font-size: $indent16;
+    letter-spacing: 1px;
+  }
 }

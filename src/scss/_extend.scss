@@ -1,11 +1,12 @@
 .headline-1 {
-  font-family: $fontBold;
+  font-family: $fontMedium;
   font-size: 42px;
   line-height: 44px;
   font-weight: 700;
-  color: $colorWhite;
-  margin: $indent17 0;
+  color: $colorPrimary;
+  margin: $indent10 0;
   text-transform: uppercase;
+  text-align: center;
 
   @include mobile {
     font-size: 26px;
@@ -19,13 +20,13 @@
 
 .headline-2 {
   @extend .headline-1;
-  font-size: 36px;
-  line-height: 59px;
+  font-size: 30px;
+  line-height: 50px;
   text-transform: uppercase;
 
   @include desktop-smaller {
-    font-size: 24x;
-    line-height: 43px;
+    font-size: 20px;
+    line-height: 24px;
   }
 
   @include mobile {
