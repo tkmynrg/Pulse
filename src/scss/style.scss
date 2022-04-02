@@ -1,4 +1,6 @@
 @import 'fonts';
+@import "node_modules/swiper/swiper";
+@import "node_modules/swiper/modules/effect-fade/effect-fade";
 @import 'mediaqueries';
 @import 'variables';
 @import 'typographic';
@@ -9,4 +11,5 @@
 @import 'header';
 @import 'main-block';
 @import 'advantages-block';
-@import '_consultation-form';
+@import 'consultation-form';
+@import "carousel-catalog";

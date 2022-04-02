@@ -105,7 +105,7 @@
                     </div>
                     <form class="feed-form" action="#1">
                         <input name="f_name" required placeholder="Ваше имя" type="text">
-                        <input name="f_phone" required placeholder="Ваш телефон" type="tel" inputmode="numeric">
+                        <input name="f_phone" required placeholder="Ваш телефон" type="tel">
                         <input name="f_email" required placeholder="Ваш e-mail" type="email">
 
                         <button class="button submit">Заказать консультацию</button>
@@ -114,7 +114,41 @@
             </div>
             <div class="consultation-bg lozad" data-background-image="./img/consultation-bg.jpg"></div>
         </div>
-
-
+        <div class="section">
+            <div class="container">
+                <div class="carousel-catalog">
+                    <div id="carousel-swiper" class="carousel-swiper swiper-slider">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="item">
+                                    <div class="photo lozad" data-background-image="./img/slide1.jpg" data-loaded="true" style="background-image: url('./img/slide1.jpg');">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="item">
+                                    <div class="photo lozad" data-background-image="./img/slide1.jpg" data-loaded="true" style="background-image: url('./img/slide2.jpg');">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="item">
+                                    <div class="photo lozad" data-background-image="./img/slide1.jpg" data-loaded="true" style="background-image: url('./img/slide3.jpg');">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination carousel-swiper-pagination"></div>
+                    <div class="carousel-button-next carousel-nav">
+                        <div class="icon icon-arrow-right"></div>
+                    </div>
+                    <div class="carousel-button-prev carousel-nav">
+                        <div class="icon icon-arrow-left"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+</div>
         <%= _.template(require('./../includes/footer.html').default)(data) %>
