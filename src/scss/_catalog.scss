@@ -1,0 +1,117 @@
+.catalog {
+
+  .tab-header{
+    margin-top: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0;
+    padding-left: 0;
+
+    .tab-header-item {
+      width: 220px;
+      border: 2px solid $colorMidGray;
+      color: $colorDarkGray;
+      font-size: 18px;
+      font-weight: 400;
+      text-transform: uppercase;
+      text-align: center;
+      line-height: 48px;
+      list-style: none;
+      transform: skew(-25deg);
+      margin: 0 5px;
+      cursor: pointer;
+      transition: all .2s;
+
+      &:hover {
+        box-shadow: 2px 2px 20px $colorRed;
+      }
+
+      &.active {
+        color: $colorWhite;
+        background-color: $colorRed;
+        border: none;
+      }
+
+      div {
+        transform: skew(25deg);
+      }
+
+
+    }
+  }
+
+  .tab-content {
+    display: flex;
+    justify-content: space-between;
+    margin: 60px -8px 20px;
+    flex: 0 1 33%;
+
+
+    .tab-content-item {
+      padding: 20px 25px;
+      margin: 0 8px;
+      border: 2px solid $colorSecondary;
+      min-height: 440px;
+
+      .tab-content-img {
+        background-position: 50%;
+        background-repeat: no-repeat;
+        background-size: contain;
+        display: block;
+        width: 100%;
+        padding-top: 70%;
+      }
+
+      .tab-content-title {
+        color: $colorBlack;
+        font-weight: 700;
+        font-size: 16px;
+        text-align: center;
+        margin-top: 10px;
+      }
+
+      .tab-content-description {
+        color: $colorBlack;
+        font-size: 14px;
+        font-weight: 300;
+        margin-top: 15px;
+        text-align: center;
+      }
+
+      .more-link {
+        text-transform: uppercase;
+        color: $colorRed;
+        font-size: 14px;
+        text-align: center;
+        margin: 10px 0px 17px 0px;
+        display: block;
+        transition: all .2s;
+        
+        &:hover {
+          color: #a11c1c;
+        }
+      }
+
+      .buy-block {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 27px;
+
+        .cost {
+          text-decoration: line-through;
+          font-weight: 300;
+          font-size: 14px;
+          color: #555555;
+        }
+
+        .discount {
+          font-weight: 700;
+          font-size: 20px;
+          color: $colorBlack;
+        }
+      }
+    }
+  }
+}

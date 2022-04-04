@@ -236,3 +236,9 @@
 .color-red {
   color: $colorRed !important;
 }
+
+.line {
+  width: 100%;
+  height: 2px;
+  background-color: $colorSecondary;
+}
