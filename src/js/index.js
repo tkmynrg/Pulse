@@ -2,12 +2,13 @@ import $ from 'jquery';
 import Swiper, {Navigation, Pagination, Autoplay} from 'swiper';
 import lozad from "lozad";
 
-
+//lazyload
 $(function () {
     const observer = lozad();
     observer.observe();
 });
 
+//swiper
 const swiper = new Swiper('#carousel-swiper', {
     effect: 'slide',
     fadeEffect: {
@@ -33,3 +34,16 @@ const swiper = new Swiper('#carousel-swiper', {
         clickable: true,
     },
 });
+
+//show content
+
+    $('.more-link').each(function(i) {
+        $(this).on('click',function(e) {
+            e.preventDefault();
+            $('.tab-content-item-wrapper').eq(i).toggleClass('show');
+        })
+    })
+
+
+
+

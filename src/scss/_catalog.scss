@@ -54,30 +54,6 @@
       border: 2px solid $colorSecondary;
       min-height: 440px;
 
-      .tab-content-img {
-        background-position: 50%;
-        background-repeat: no-repeat;
-        background-size: contain;
-        display: block;
-        width: 100%;
-        padding-top: 70%;
-      }
-
-      .tab-content-title {
-        color: $colorBlack;
-        font-weight: 700;
-        font-size: 16px;
-        text-align: center;
-        margin-top: 10px;
-      }
-
-      .tab-content-description {
-        color: $colorBlack;
-        font-size: 14px;
-        font-weight: 300;
-        margin-top: 15px;
-        text-align: center;
-      }
 
       .more-link {
         text-transform: uppercase;
@@ -87,9 +63,57 @@
         margin: 10px 0px 17px 0px;
         display: block;
         transition: all .2s;
-        
+
         &:hover {
           color: #a11c1c;
+        }
+      }
+
+      .tab-content-item-wrapper {
+        overflow: hidden;
+        transition: all .2s ease;
+
+        &.show {
+          .tab-content-item-content {
+            transform: translateX(-100%);
+          }
+          .tab-content-item-list {
+            transform: translate(0%, -245px);
+          }
+        }
+
+        .tab-content-item-content {
+          transition: all .2s ease;
+
+          .tab-content-img {
+            background-position: 50%;
+            background-repeat: no-repeat;
+            background-size: contain;
+            display: block;
+            width: 100%;
+            padding-top: 70%;
+          }
+
+          .tab-content-title {
+            color: $colorBlack;
+            font-weight: 700;
+            font-size: 16px;
+            text-align: center;
+            margin-top: 10px;
+          }
+
+          .tab-content-description {
+            color: $colorBlack;
+            font-size: 14px;
+            font-weight: 300;
+            margin-top: 15px;
+            text-align: center;
+          }
+        }
+
+        .tab-content-item-list {
+          transform: translateX(100%);
+          transition: all .2s ease;
         }
       }
 
