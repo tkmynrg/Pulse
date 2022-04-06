@@ -43,17 +43,19 @@
 
   .tab-content {
     display: flex;
-    justify-content: space-between;
     margin: 60px -8px 20px;
-    flex: 0 1 33%;
+    flex-wrap: wrap;
+    display: none;
 
+    &.active {
+      display: flex;
+    }
 
     .tab-content-item {
-      padding: 20px 25px;
-      margin: 0 8px;
       border: 2px solid $colorSecondary;
       min-height: 440px;
-
+      width: calc(33% - 16px);
+      margin: 8px;
 
       .more-link {
         text-transform: uppercase;
@@ -64,6 +66,16 @@
         display: block;
         transition: all .2s;
 
+        &-back {
+          text-transform: uppercase;
+          color: $colorRed;
+          font-size: 14px;
+          text-align: center;
+          margin: 10px 0px 17px 0px;
+          display: block;
+          transition: all .2s;
+        }
+
         &:hover {
           color: #a11c1c;
         }
@@ -72,18 +84,20 @@
       .tab-content-item-wrapper {
         overflow: hidden;
         transition: all .2s ease;
+        position: relative;
 
         &.show {
           .tab-content-item-content {
-            transform: translateX(-100%);
+            transform: translateY(100%);
           }
           .tab-content-item-list {
-            transform: translate(0%, -245px);
+            top: 0;
           }
         }
 
         .tab-content-item-content {
           transition: all .2s ease;
+          padding: 20px 20px 15px;
 
           .tab-content-img {
             background-position: 50%;
@@ -112,8 +126,35 @@
         }
 
         .tab-content-item-list {
-          transform: translateX(100%);
           transition: all .2s ease;
+          position: absolute;
+          top: -100%;
+          left: 0;
+          margin: 0;
+          list-style-type: none;
+          padding: 15px 15px 15px 30px;
+
+          li {
+            font-weight: 300;
+            font-size: $indent14;
+            line-height: $indent20;
+            margin-bottom: 20px;
+            position: relative;
+
+            &:last-child {
+              margin-bottom: 10px;
+            }
+
+            &:before {
+              content: '';
+              position: absolute;
+              width: 5px;
+              height: 5px;
+              background-color: $colorRed;
+              left: -15px;
+              top: 5px;
+            }
+          }
         }
       }
 
@@ -122,6 +163,7 @@
         justify-content: space-between;
         align-items: center;
         margin-top: 27px;
+        padding: 20px 25px;
 
         .cost {
           text-decoration: line-through;

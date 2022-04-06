@@ -36,13 +36,31 @@ const swiper = new Swiper('#carousel-swiper', {
 });
 
 //show content
-
-    $('.more-link').each(function(i) {
+function toggleSlide(item) {
+    $(item).each(function(i) {
         $(this).on('click',function(e) {
             e.preventDefault();
             $('.tab-content-item-wrapper').eq(i).toggleClass('show');
         })
     })
+};
+
+toggleSlide('.more-link');
+toggleSlide('.more-link-back');
+
+//tabs
+$(function() {
+    $('ul.tab-header').on('click', 'li:not(.active)', function() {
+        $(this)
+            .addClass('active').siblings().removeClass('active')
+            .closest('div.catalog').find('div.tab-content').removeClass('active').eq($(this).index()).addClass('active');
+    });
+});
+
+
+
+
+
 
 
 
