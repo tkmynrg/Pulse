@@ -57,11 +57,19 @@ $(function() {
     });
 });
 
+//modals
+$('[data-modal=consultation]').on('click', function () {
+    $('.overlay, #consultation').fadeIn('slow');
+});
 
+$('.modal_close').on('click', function () {
+    $('.overlay, #consultation, #thanks, #order').fadeOut('slow')
+})
 
+$('.button-buy-catalog').on('click', function () {
+    $('.overlay, #order').fadeIn('slow')
+})
 
-
-
-
-
-
+$('.button-buy-catalog').each(function (i) {
+    $
+})
