@@ -59,17 +59,19 @@ $(function() {
 
 //modals
 $('[data-modal=consultation]').on('click', function () {
-    $('.overlay, #consultation').fadeIn('slow');
+    $('.overlay, #consultation').fadeIn('fast');
 });
 
 $('.modal_close').on('click', function () {
-    $('.overlay, #consultation, #thanks, #order').fadeOut('slow')
-})
+    $('.overlay, #consultation, #thanks, #order').fadeOut('fast');
+});
 
-$('.button-buy-catalog').on('click', function () {
-    $('.overlay, #order').fadeIn('slow')
-})
 
 $('.button-buy-catalog').each(function (i) {
-    $
+    $(this).on('click', function() {
+        $('#order .modal_description').text($('.tab-content-title').eq(i).text());
+        $('.overlay, #order').fadeIn('fast');
+    });
 })
+
+$('.feed-form').validate();
