@@ -1,6 +1,8 @@
 import $ from 'jquery';
 import Swiper, {Navigation, Pagination, Autoplay} from 'swiper';
 import lozad from "lozad";
+import 'jquery-validation';
+import 'inputmask';
 
 //lazyload
 $(function () {
@@ -74,4 +76,40 @@ $('.button-buy-catalog').each(function (i) {
     });
 })
 
-$('.feed-form').validate();
+//form
+function validateForm(form) {
+    $(form).validate( {
+        rules: {
+            f_name: "required",
+            f_phone: "required",
+            f_email: {
+                required: true,
+                email: true
+            }
+        },
+        messages: {
+            f_name: "Введите корректное имя",
+            f_phone: "Введите корректный номер телефона",
+            f_email: {
+                required: "Поле обязательно",
+                email: "Введите свой реальный email"
+            }
+        },
+    });
+}
+
+validateForm('#consultation-form');
+validateForm('#consultation form');
+validateForm('#order form');
+
+//validate inputs
+$('input[name=f_phone]').inputmask( {
+    mask: '+7 999-999-99-99',
+    showMaskOnHover: false
+});
+
+$('input[name=f_email]').inputmask( {
+    mask: "*{1,20}[.*{1,20}][.*{1,20}][.*{1,20}]@*{1,20}[.*{2,6}][.*{1,2}]",
+    showMaskOnHover: false
+});
+
