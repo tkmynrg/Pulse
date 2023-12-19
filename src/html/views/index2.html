@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Расчет себестоимости</title>
+  <script src="script.js"></script>
+</head>
+<body>
+<h1>Расчет себестоимости</h1>
+
+<h2>Ингредиенты</h2>
+<table id="ingredientTable">
+  <thead>
+  <tr>
+    <th>Название</th>
+    <th>Стоимость (за упаковку)</th>
+    <th>Объем упаковки</th>
+    <th>Объем в рецепте</th>
+    <th>Единицы измерения</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><input type="text" name="ingredientName"></td>
+    <td><input type="text" name="ingredientCost"></td>
+    <td><input type="text" name="ingredientPackageVolume"></td>
+    <td><input type="text" name="ingredientRecipeVolume"></td>
+    <td>
+      <select name="ingredientUnit">
+        <option value="ml">мл</option>
+        <option value="g">г</option>
+        <option value="units">шт</option>
+      </select>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<button onclick="addIngredient()">Добавить ингредиент</button>
+
+<h2>Расходы</h2>
+<table id="costTable">
+  <thead>
+  <tr>
+    <th>Наименование расхода</th>
+    <th>Цена</th>
+    <th>Время использования</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><input type="text" name="costName"></td>
+    <td><input type="text" name="costPrice"></td>
+    <td><input type="text" name="costTime"></td>
+  </tr>
+  </tbody>
+</table>
+
+<button onclick="calculateCost()">Рассчитать себестоимость</button>
+
+<h2>Результаты</h2>
+<p>Себестоимость ингредиентов: <span id="ingredientTotalCost">0.00</span></p>
+<p>Общая себестоимость: <span id="costTotalCost">0.00</span></p>
+
+
+<script>
+
+  function addIngredient() {
+    const ingredientTable = document.querySelector("#ingredientTable tbody");
+    const newRow = document.createElement("tr");
+
+    newRow.innerHTML = `
+    <td><input type="text" name="ingredientName"></td>
+    <td><input type="text" name="ingredientCost"></td>
+    <td><input type="text" name="ingredientPackageVolume"></td>
+    <td><input type="text" name="ingredientRecipeVolume"></td>
+    <td>
+      <select name="ingredientUnit">
+        <option value="ml">мл</option>
+        <option value="g">г</option>
+        <option value="units">шт</option>
+      </select>
+    </td>
+  `;
+
+    ingredientTable.appendChild(newRow);
+  }
+
+  function calculateCost() {
+    let ingredientCost = 0;
+    let totalCost = 0;
+
+    const ingredientRows = document.querySelectorAll("#ingredientTable tbody tr");
+    const costRows = document.querySelectorAll("#costTable tbody tr");
+
+    // Calculate ingredient cost
+    ingredientRows.forEach(function (row) {
+      const ingredientCostValue = parseFloat(row.querySelector("input[name=ingredientCost]").value.replace(",", ".")) || 0;
+      const ingredientPackageVolume = parseFloat(row.querySelector("input[name=ingredientPackageVolume]").value.replace(",", ".")) || 1;
+      const ingredientRecipeVolume = parseFloat(row.querySelector("input[name=ingredientRecipeVolume]").value.replace(",", ".")) || 0;
+      const ingredientUnit = row.querySelector("select[name=ingredientUnit]").value;
+
+      let ingredientCostPerUnit = 0;
+      if (ingredientPackageVolume !== 0) { // Проверка деления на ноль
+        if (ingredientUnit === "ml" || ingredientUnit === "g") {
+          ingredientCostPerUnit = ingredientCostValue * ingredientRecipeVolume / ingredientPackageVolume;
+        } else {
+          ingredientCostPerUnit = ingredientCostValue * ingredientRecipeVolume;
+        }
+      }
+
+      ingredientCost += ingredientCostPerUnit;
+    });
+
+    // Calculate cost
+    costRows.forEach(function (row) {
+      const costPrice = parseFloat(row.querySelector("input[name=costPrice]").value.replace(",", ".")) || 0;
+      const costTime = parseFloat(row.querySelector("input[name=costTime]").value.replace(",", ".")) || 0;
+
+      const costTotal = costPrice * costTime;
+      totalCost += costTotal;
+    });
+
+    // Display results
+    const ingredientTotalCostElement = document.querySelector("#ingredientTotalCost");
+    const costTotalCostElement = document.querySelector("#costTotalCost");
+
+    ingredientTotalCostElement.textContent = ingredientCost.toFixed(2);
+    costTotalCostElement.textContent = totalCost.toFixed(2);
+  }
+</script>
+
+</body>
+</html>
